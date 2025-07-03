@@ -1,0 +1,15 @@
+main {
+  min-height: calc(100vh - 64px);
+  background-color: #f5f5f5;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+mat-toolbar span {
+  margin-left: 8px;
+  font-weight: 500;
+}

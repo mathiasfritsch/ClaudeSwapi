@@ -1,0 +1,33 @@
+<div class="people-list-container">
+  <mat-card class="header-card">
+    <mat-card-header>
+      <mat-card-title>Star Wars Characters</mat-card-title>
+      <mat-card-subtitle>Browse through the galaxy's most famous characters</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Loading characters...</p>
+  </div>
+
+  <div *ngIf="!loading" class="people-grid">
+    <mat-grid-list cols="4" rowHeight="200px" gutterSize="16px">
+      <mat-grid-tile *ngFor="let person of people">
+        <app-person-card 
+          [person]="person" 
+          (personClick)="onPersonClick($event)">
+        </app-person-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-paginator
+      [length]="totalRecords"
+      [pageSize]="pageSize"
+      [pageIndex]="currentPage"
+      [pageSizeOptions]="[5, 10, 20]"
+      (page)="onPageChange($event)"
+      showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="person-detail-container">
+  <div class="header-actions">
+    <button mat-raised-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Characters
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>Loading character details...</p>
+  </div>
+
+  <div *ngIf="error" class="error-container">
+    <mat-card>
+      <mat-card-content>
+        <p>{{ error }}</p>
+        <button mat-button color="primary" (click)="goBack()">Go Back</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div *ngIf="person && !loading" class="person-details">
+    <mat-card class="person-card">
+      <mat-card-header>
+        <div mat-card-avatar class="person-avatar">
+          <mat-icon>person</mat-icon>
+        </div>
+        <mat-card-title>{{ person.name }}</mat-card-title>
+        <mat-card-subtitle>Character Details</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListItemIcon>badge</mat-icon>
+            <div matListItemTitle>ID</div>
+            <div matListItemLine>{{ person.uid }}</div>
+          </mat-list-item>
+          
+          <mat-list-item *ngIf="person.gender">
+            <mat-icon matListItemIcon>person</mat-icon>
+            <div matListItemTitle>Gender</div>
+            <div matListItemLine>{{ person.gender | titlecase }}</div>
+          </mat-list-item>
+          
+          <mat-list-item *ngIf="person.height">
+            <mat-icon matListItemIcon>height</mat-icon>
+            <div matListItemTitle>Height</div>
+            <div matListItemLine>{{ person.height }} cm</div>
+          </mat-list-item>
+          
+          <mat-list-item *ngIf="person.mass">
+            <mat-icon matListItemIcon>fitness_center</mat-icon>
+            <div matListItemTitle>Mass</div>
+            <div matListItemLine>{{ person.mass }} kg</div>
+          </mat-list-item>
+          
+          <mat-list-item *ngIf="person.birthYear">
+            <mat-icon matListItemIcon>calendar_today</mat-icon>
+            <div matListItemTitle>Birth Year</div>
+            <div matListItemLine>{{ person.birthYear }}</div>
+          </mat-list-item>
+          
+          <mat-list-item *ngIf="person.hairColor">
+            <mat-icon matListItemIcon>palette</mat-icon>
+            <div matListItemTitle>Hair Color</div>
+            <div matListItemLine>{{ person.hairColor | titlecase }}</div>
+          </mat-list-item>
+          
+          <mat-list-item *ngIf="person.skinColor">
+            <mat-icon matListItemIcon>palette</mat-icon>
+            <div matListItemTitle>Skin Color</div>
+            <div matListItemLine>{{ person.skinColor | titlecase }}</div>
+          </mat-list-item>
+          
+          <mat-list-item *ngIf="person.eyeColor">
+            <mat-icon matListItemIcon>visibility</mat-icon>
+            <div matListItemTitle>Eye Color</div>
+            <div matListItemLine>{{ person.eyeColor | titlecase }}</div>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>create</mat-icon>
+            <div matListItemTitle>Created</div>
+            <div matListItemLine>{{ formatDate(person.created) }}</div>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon matListItemIcon>edit</mat-icon>
+            <div matListItemTitle>Last Modified</div>
+            <div matListItemLine>{{ formatDate(person.edited) }}</div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
