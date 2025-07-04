@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(export PATH=\"$PATH:/home/mathi/.dotnet\")",
+      "Bash(dotnet new:*)",
+      "Bash(ls:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(dotnet sln add:*)",
+      "Bash(mkdir:*)",
+      "Bash(dotnet add reference:*)",
+      "Bash(dotnet add package:*)",
+      "Bash(dotnet build)",
+      "Bash(dotnet remove:*)",
+      "Bash(timeout:*)",
+      "Bash(curl:*)",
+      "Bash(node:*)",
+      "Bash(npm --version)",
+      "Bash(ng version)",
+      "Bash(npm install:*)",
+      "Bash(ng new:*)",
+      "Bash(ng add:*)",
+      "Bash(find:*)",
+      "Bash(ng generate:*)",
+      "Bash(ng build)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(dotnet clean:*)",
+      "Bash(export PATH=\"$PATH:/root/.dotnet\")",
+      "Bash(dotnet --version)",
+      "Bash(/root/.dotnet/dotnet --version)",
+      "Bash(chmod:*)",
+      "Bash(/home/mathi/.dotnet/dotnet --version)",
+      "Bash(/home/mathi/.dotnet/dotnet build)",
+      "Bash(cp:*)",
+      "Bash(npm run build:*)"
+    ],
+    "deny": []
+  }
+}
