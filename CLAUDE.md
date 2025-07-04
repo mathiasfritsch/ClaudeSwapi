@@ -40,6 +40,8 @@ The project integrates with the external SWAPI (Star Wars API)
 
 ### Planned Testing Approach
 - **Integration Tests**: API endpoint testing with real SWAPI integration
+- **Frontend Tests**: 
+  - Add frontend tests with Cypress for comprehensive UI and interaction testing
 
 ## Common Development Tasks
 

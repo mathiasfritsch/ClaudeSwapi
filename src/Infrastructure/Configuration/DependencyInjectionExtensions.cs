@@ -12,7 +12,7 @@ public static class DependencyInjectionExtensions
         services.AddRefitClient<ISwapiApiClient>()
             .ConfigureHttpClient(c =>
             {
-                c.BaseAddress = new Uri("https://www.swapi.tech/api/");
+                c.BaseAddress = new Uri("https://www.swapi.tech/api");
                 c.Timeout = TimeSpan.FromSeconds(30);
             });
 

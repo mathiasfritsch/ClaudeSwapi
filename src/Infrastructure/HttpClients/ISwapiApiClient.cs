@@ -14,7 +14,7 @@ public interface ISwapiApiClient
 
     // Films
     [Get("/films")]
-    Task<ApiResponse<SwapiPaginatedResponse<SwapiFilmSummary>>> GetFilmsAsync(
+    Task<ApiResponse<SwapiFilmsResponse>> GetFilmsAsync(
         [Query] int? page = null, 
         [Query] int? limit = null);
 

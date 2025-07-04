@@ -23,6 +23,15 @@ public class SwapiPaginatedResponse<T>
     public List<T> Results { get; set; } = new();
 }
 
+public class SwapiFilmsResponse
+{
+    [JsonPropertyName("message")]
+    public string Message { get; set; } = string.Empty;
+
+    [JsonPropertyName("result")]
+    public List<SwapiFilmSummary> Result { get; set; } = new();
+}
+
 public class SwapiPersonSummary
 {
     [JsonPropertyName("uid")]

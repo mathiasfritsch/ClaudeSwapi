@@ -12,7 +12,8 @@
       *ngFor="let item of navigationItems"
       [routerLink]="item.path"
       routerLinkActive="active"
-      class="nav-button">
+      class="nav-button"
+      [attr.data-cy]="'nav-' + item.label.toLowerCase()">
       <mat-icon>{{ item.icon }}</mat-icon>
       {{ item.label }}
     </button>

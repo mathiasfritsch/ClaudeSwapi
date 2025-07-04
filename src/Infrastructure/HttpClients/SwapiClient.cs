@@ -116,11 +116,11 @@ public class SwapiClient : ISwapiClient
             return new PaginatedResponse<Film>
             {
                 Message = swapiResponse.Message,
-                TotalRecords = swapiResponse.TotalRecords,
-                TotalPages = swapiResponse.TotalPages,
-                Previous = swapiResponse.Previous,
-                Next = swapiResponse.Next,
-                Results = swapiResponse.Results.Select(MapToFilmSummary).ToList()
+                TotalRecords = swapiResponse.Result.Count, // Use actual count since API doesn't provide pagination info
+                TotalPages = 1, // Films endpoint doesn't paginate
+                Previous = null,
+                Next = null,
+                Results = swapiResponse.Result.Select(MapToFilmSummary).ToList()
             };
         }
         catch (Exception ex)
