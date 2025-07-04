@@ -42,6 +42,7 @@ The project integrates with the external SWAPI (Star Wars API)
 - **Integration Tests**: API endpoint testing with real SWAPI integration
 - **Frontend Tests**: 
   - Add frontend tests with Cypress for comprehensive UI and interaction testing
+  - cypress tests for swapi endpoint should all be mocked
 
 ## Common Development Tasks
 
@@ -78,3 +79,4 @@ The project integrates with the external SWAPI (Star Wars API)
 - Implement comprehensive navigation to detail pages for all Star Wars universe lists
   - Ensure all list components have options to navigate to respective detail pages
   - Cover all Star Wars universe categories (people, planets, starships, vehicles, species, films)
+  - take into account that the films endpoint returns data in a different format, make a request to check it
