@@ -69,3 +69,10 @@ The project integrates with the external SWAPI (Star Wars API)
    - Run `npm install` in `src/Frontend/swapi-frontend/` directory
    - Check for CORS issues between frontend (port 4200) and API (port 5001)
    - Verify Angular service is calling correct API endpoints
+
+## Frontend Enhancements
+
+### Navigation and Detail Pages
+- Implement comprehensive navigation to detail pages for all Star Wars universe lists
+  - Ensure all list components have options to navigate to respective detail pages
+  - Cover all Star Wars universe categories (people, planets, starships, vehicles, species, films)

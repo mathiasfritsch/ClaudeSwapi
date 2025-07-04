@@ -1,0 +1,112 @@
+<div class="detail-container">
+  <div class="loading-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="error-message" *ngIf="error && !loading">
+    <mat-card>
+      <mat-card-content>
+        <p>{{ error }}</p>
+        <button mat-raised-button color="primary" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Back to Starships
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="starship-detail" *ngIf="starship && !loading">
+    <div class="header-actions">
+      <button mat-raised-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Starships
+      </button>
+    </div>
+
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <mat-card-title>{{ starship.name }}</mat-card-title>
+        <mat-card-subtitle>{{ starship.starshipClass }} Starship</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="starship-info">
+          <div class="info-section">
+            <h3>Technical Specifications</h3>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon matListItemIcon>precision_manufacturing</mat-icon>
+                <div matListItemTitle>Model</div>
+                <div matListItemLine>{{ starship.model }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>factory</mat-icon>
+                <div matListItemTitle>Manufacturer</div>
+                <div matListItemLine>{{ starship.manufacturer }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>attach_money</mat-icon>
+                <div matListItemTitle>Cost in Credits</div>
+                <div matListItemLine>{{ starship.costInCredits }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>straighten</mat-icon>
+                <div matListItemTitle>Length</div>
+                <div matListItemLine>{{ starship.length }} meters</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>speed</mat-icon>
+                <div matListItemTitle>Max Atmosphering Speed</div>
+                <div matListItemLine>{{ starship.maxAtmospheringSpeed }} km/h</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>groups</mat-icon>
+                <div matListItemTitle>Crew</div>
+                <div matListItemLine>{{ starship.crew }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>airline_seat_recline_normal</mat-icon>
+                <div matListItemTitle>Passengers</div>
+                <div matListItemLine>{{ starship.passengers }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>inventory</mat-icon>
+                <div matListItemTitle>Cargo Capacity</div>
+                <div matListItemLine>{{ starship.cargoCapacity }} kg</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>timer</mat-icon>
+                <div matListItemTitle>Consumables</div>
+                <div matListItemLine>{{ starship.consumables }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>rocket</mat-icon>
+                <div matListItemTitle>Hyperdrive Rating</div>
+                <div matListItemLine>{{ starship.hyperdriveRating }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>flash_on</mat-icon>
+                <div matListItemTitle>MGLT</div>
+                <div matListItemLine>{{ starship.mglt }}</div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+
+          <div class="info-section" *ngIf="starship.pilots?.length">
+            <h3>Known Pilots ({{ starship.pilots.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let pilot of starship.pilots">{{ pilot }}</mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="info-section" *ngIf="starship.films?.length">
+            <h3>Featured in Films ({{ starship.films.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let film of starship.films">{{ film }}</mat-chip>
+            </mat-chip-set>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

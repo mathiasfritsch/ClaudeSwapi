@@ -1,0 +1,40 @@
+<div class="films-container">
+  <mat-card class="header-card">
+    <mat-card-header>
+      <mat-card-title>Star Wars Films</mat-card-title>
+      <mat-card-subtitle>Explore the galaxy's greatest stories</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="loading-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="films-grid" *ngIf="!loading && films.length > 0">
+    <mat-grid-list cols="3" rowHeight="300px" gutterSize="16px">
+      <mat-grid-tile *ngFor="let film of films">
+        <app-film-card 
+          [film]="film" 
+          (click)="onFilmClick(film)">
+        </app-film-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div class="no-data" *ngIf="!loading && films.length === 0">
+    <mat-card>
+      <mat-card-content>
+        <p>No films found.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-paginator 
+    *ngIf="!loading && totalRecords > 0"
+    [length]="totalRecords"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

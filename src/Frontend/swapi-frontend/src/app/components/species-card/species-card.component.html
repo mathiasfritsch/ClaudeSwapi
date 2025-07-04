@@ -1,0 +1,19 @@
+<mat-card class="species-card" *ngIf="species">
+  <mat-card-header>
+    <mat-card-title>{{ species.name }}</mat-card-title>
+    <mat-card-subtitle>Species</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div class="species-details">
+      <p>Explore this life form from the Star Wars universe.</p>
+    </div>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-raised-button color="primary">
+      <mat-icon>pets</mat-icon>
+      View Details
+    </button>
+  </mat-card-actions>
+</mat-card>

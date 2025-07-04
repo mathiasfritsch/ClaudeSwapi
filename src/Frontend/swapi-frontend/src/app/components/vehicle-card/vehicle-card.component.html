@@ -1,0 +1,19 @@
+<mat-card class="vehicle-card" *ngIf="vehicle">
+  <mat-card-header>
+    <mat-card-title>{{ vehicle.name }}</mat-card-title>
+    <mat-card-subtitle>Vehicle</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div class="vehicle-details">
+      <p>Explore this vehicle from the Star Wars universe.</p>
+    </div>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-raised-button color="primary">
+      <mat-icon>directions_car</mat-icon>
+      View Details
+    </button>
+  </mat-card-actions>
+</mat-card>

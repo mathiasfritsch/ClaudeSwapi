@@ -1,0 +1,21 @@
+<mat-card class="film-card" *ngIf="film">
+  <mat-card-header>
+    <mat-card-title>{{ film.title }}</mat-card-title>
+    <mat-card-subtitle>Episode {{ film.episodeId }}</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div class="film-details">
+      <p><strong>Director:</strong> {{ film.director }}</p>
+      <p><strong>Producer:</strong> {{ film.producer }}</p>
+      <p><strong>Release Date:</strong> {{ film.releaseDate | date:'mediumDate' }}</p>
+    </div>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-raised-button color="primary">
+      <mat-icon>visibility</mat-icon>
+      View Details
+    </button>
+  </mat-card-actions>
+</mat-card>

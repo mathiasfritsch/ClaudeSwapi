@@ -14,6 +14,11 @@ builder.Services.AddSwaggerGen(c =>
 
 // Add application services
 builder.Services.AddScoped<IPeopleService, PeopleService>();
+builder.Services.AddScoped<IFilmService, FilmService>();
+builder.Services.AddScoped<IPlanetService, PlanetService>();
+builder.Services.AddScoped<ISpeciesService, SpeciesService>();
+builder.Services.AddScoped<IStarshipService, StarshipService>();
+builder.Services.AddScoped<IVehicleService, VehicleService>();
 
 // Add infrastructure services (HTTP clients, etc.)
 builder.Services.AddInfrastructure();

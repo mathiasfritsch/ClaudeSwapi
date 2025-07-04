@@ -1,0 +1,100 @@
+<div class="detail-container">
+  <div class="loading-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="error-message" *ngIf="error && !loading">
+    <mat-card>
+      <mat-card-content>
+        <p>{{ error }}</p>
+        <button mat-raised-button color="primary" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Back to Films
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="film-detail" *ngIf="film && !loading">
+    <div class="header-actions">
+      <button mat-raised-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Films
+      </button>
+    </div>
+
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <mat-card-title>{{ film.title }}</mat-card-title>
+        <mat-card-subtitle>Episode {{ film.episodeId }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="film-info">
+          <div class="info-section">
+            <h3>Film Information</h3>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon matListItemIcon>person</mat-icon>
+                <div matListItemTitle>Director</div>
+                <div matListItemLine>{{ film.director }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>business</mat-icon>
+                <div matListItemTitle>Producer</div>
+                <div matListItemLine>{{ film.producer }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>event</mat-icon>
+                <div matListItemTitle>Release Date</div>
+                <div matListItemLine>{{ formatDate(film.releaseDate) }}</div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+
+          <div class="info-section" *ngIf="film.openingCrawl">
+            <h3>Opening Crawl</h3>
+            <div class="opening-crawl">
+              {{ film.openingCrawl }}
+            </div>
+          </div>
+
+          <div class="info-section" *ngIf="film.characters?.length">
+            <h3>Characters ({{ film.characters.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let character of film.characters">{{ character }}</mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="info-section" *ngIf="film.planets?.length">
+            <h3>Planets ({{ film.planets.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let planet of film.planets">{{ planet }}</mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="info-section" *ngIf="film.starships?.length">
+            <h3>Starships ({{ film.starships.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let starship of film.starships">{{ starship }}</mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="info-section" *ngIf="film.vehicles?.length">
+            <h3>Vehicles ({{ film.vehicles.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let vehicle of film.vehicles">{{ vehicle }}</mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="info-section" *ngIf="film.species?.length">
+            <h3>Species ({{ film.species.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let species of film.species">{{ species }}</mat-chip>
+            </mat-chip-set>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

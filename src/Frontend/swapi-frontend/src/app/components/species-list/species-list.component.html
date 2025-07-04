@@ -1,0 +1,40 @@
+<div class="species-container">
+  <mat-card class="header-card">
+    <mat-card-header>
+      <mat-card-title>Star Wars Species</mat-card-title>
+      <mat-card-subtitle>Discover the diverse life forms across the galaxy</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <div class="loading-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="species-grid" *ngIf="!loading && species.length > 0">
+    <mat-grid-list cols="3" rowHeight="250px" gutterSize="16px">
+      <mat-grid-tile *ngFor="let speciesItem of species">
+        <app-species-card 
+          [species]="speciesItem" 
+          (click)="onSpeciesClick(speciesItem)">
+        </app-species-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div class="no-data" *ngIf="!loading && species.length === 0">
+    <mat-card>
+      <mat-card-content>
+        <p>No species found.</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-paginator 
+    *ngIf="!loading && totalRecords > 0"
+    [length]="totalRecords"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

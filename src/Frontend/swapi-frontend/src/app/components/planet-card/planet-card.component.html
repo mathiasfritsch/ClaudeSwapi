@@ -1,0 +1,19 @@
+<mat-card class="planet-card" *ngIf="planet">
+  <mat-card-header>
+    <mat-card-title>{{ planet.name }}</mat-card-title>
+    <mat-card-subtitle>Planet</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div class="planet-details">
+      <p>Explore this world from the Star Wars universe.</p>
+    </div>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-raised-button color="primary">
+      <mat-icon>public</mat-icon>
+      View Details
+    </button>
+  </mat-card-actions>
+</mat-card>

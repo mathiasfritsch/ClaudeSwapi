@@ -1,0 +1,97 @@
+<div class="detail-container">
+  <div class="loading-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="error-message" *ngIf="error && !loading">
+    <mat-card>
+      <mat-card-content>
+        <p>{{ error }}</p>
+        <button mat-raised-button color="primary" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Back to Planets
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="planet-detail" *ngIf="planet && !loading">
+    <div class="header-actions">
+      <button mat-raised-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Planets
+      </button>
+    </div>
+
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <mat-card-title>{{ planet.name }}</mat-card-title>
+        <mat-card-subtitle>Planet</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="planet-info">
+          <div class="info-section">
+            <h3>Physical Characteristics</h3>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon matListItemIcon>rotate_right</mat-icon>
+                <div matListItemTitle>Rotation Period</div>
+                <div matListItemLine>{{ planet.rotationPeriod }} hours</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>public</mat-icon>
+                <div matListItemTitle>Orbital Period</div>
+                <div matListItemLine>{{ planet.orbitalPeriod }} days</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>straighten</mat-icon>
+                <div matListItemTitle>Diameter</div>
+                <div matListItemLine>{{ planet.diameter }} km</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>thermostat</mat-icon>
+                <div matListItemTitle>Climate</div>
+                <div matListItemLine>{{ planet.climate }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>gravity_off</mat-icon>
+                <div matListItemTitle>Gravity</div>
+                <div matListItemLine>{{ planet.gravity }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>terrain</mat-icon>
+                <div matListItemTitle>Terrain</div>
+                <div matListItemLine>{{ planet.terrain }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>water</mat-icon>
+                <div matListItemTitle>Surface Water</div>
+                <div matListItemLine>{{ planet.surfaceWater }}%</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>groups</mat-icon>
+                <div matListItemTitle>Population</div>
+                <div matListItemLine>{{ planet.population }}</div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+
+          <div class="info-section" *ngIf="planet.residents?.length">
+            <h3>Notable Residents ({{ planet.residents.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let resident of planet.residents">{{ resident }}</mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="info-section" *ngIf="planet.films?.length">
+            <h3>Featured in Films ({{ planet.films.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let film of planet.films">{{ film }}</mat-chip>
+            </mat-chip-set>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.detail-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.error-message {
+  text-align: center;
+}
+
+.header-actions {
+  margin-bottom: 20px;
+}
+
+.detail-card {
+  width: 100%;
+}
+
+.vehicle-info {
+  margin-top: 16px;
+}
+
+.info-section {
+  margin-bottom: 24px;
+}
+
+.info-section h3 {
+  color: #1976d2;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+mat-chip-set {
+  margin-top: 8px;
+}
+
+mat-chip {
+  margin: 4px;
+}

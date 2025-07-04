@@ -1,0 +1,19 @@
+<mat-card class="starship-card" *ngIf="starship">
+  <mat-card-header>
+    <mat-card-title>{{ starship.name }}</mat-card-title>
+    <mat-card-subtitle>Starship</mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <div class="starship-details">
+      <p>Explore this advanced vessel from the Star Wars universe.</p>
+    </div>
+  </mat-card-content>
+  
+  <mat-card-actions>
+    <button mat-raised-button color="primary">
+      <mat-icon>rocket_launch</mat-icon>
+      View Details
+    </button>
+  </mat-card-actions>
+</mat-card>

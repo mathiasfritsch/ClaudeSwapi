@@ -33,7 +33,10 @@
       "Bash(/home/mathi/.dotnet/dotnet --version)",
       "Bash(/home/mathi/.dotnet/dotnet build)",
       "Bash(cp:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "WebFetch(domain:www.swapi.tech)",
+      "Bash(pkill:*)",
+      "Bash(true)"
     ],
     "deny": []
   }

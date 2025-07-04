@@ -1,0 +1,102 @@
+<div class="detail-container">
+  <div class="loading-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="error-message" *ngIf="error && !loading">
+    <mat-card>
+      <mat-card-content>
+        <p>{{ error }}</p>
+        <button mat-raised-button color="primary" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+          Back to Species
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="species-detail" *ngIf="species && !loading">
+    <div class="header-actions">
+      <button mat-raised-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Species
+      </button>
+    </div>
+
+    <mat-card class="detail-card">
+      <mat-card-header>
+        <mat-card-title>{{ species.name }}</mat-card-title>
+        <mat-card-subtitle>Species</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="species-info">
+          <div class="info-section">
+            <h3>Biological Characteristics</h3>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon matListItemIcon>category</mat-icon>
+                <div matListItemTitle>Classification</div>
+                <div matListItemLine>{{ species.classification }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>assignment</mat-icon>
+                <div matListItemTitle>Designation</div>
+                <div matListItemLine>{{ species.designation }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>height</mat-icon>
+                <div matListItemTitle>Average Height</div>
+                <div matListItemLine>{{ species.averageHeight }} cm</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>palette</mat-icon>
+                <div matListItemTitle>Skin Colors</div>
+                <div matListItemLine>{{ species.skinColors }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>brush</mat-icon>
+                <div matListItemTitle>Hair Colors</div>
+                <div matListItemLine>{{ species.hairColors }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>visibility</mat-icon>
+                <div matListItemTitle>Eye Colors</div>
+                <div matListItemLine>{{ species.eyeColors }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>schedule</mat-icon>
+                <div matListItemTitle>Average Lifespan</div>
+                <div matListItemLine>{{ species.averageLifespan }} years</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>home</mat-icon>
+                <div matListItemTitle>Homeworld</div>
+                <div matListItemLine>{{ species.homeworld }}</div>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon matListItemIcon>translate</mat-icon>
+                <div matListItemTitle>Language</div>
+                <div matListItemLine>{{ species.language }}</div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+
+          <div class="info-section" *ngIf="species.people?.length">
+            <h3>Notable People ({{ species.people.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let person of species.people">{{ person }}</mat-chip>
+            </mat-chip-set>
+          </div>
+
+          <div class="info-section" *ngIf="species.films?.length">
+            <h3>Featured in Films ({{ species.films.length }})</h3>
+            <mat-chip-set>
+              <mat-chip *ngFor="let film of species.films">{{ film }}</mat-chip>
+            </mat-chip-set>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
