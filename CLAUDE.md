@@ -52,6 +52,28 @@ This project uses **Git Flow** with the following branches:
 - `release/*` - Release preparation branches
 - `hotfix/*` - Emergency fixes for production
 
+## Package Management
+
+### Central Package Management
+This project uses **Central Package Management** for consistent NuGet package versioning across all projects:
+
+- **Directory.Packages.props** - Defines all package versions centrally
+- **Directory.Build.props** - Common MSBuild properties for all projects
+- **ManagePackageVersionsCentrally** - Enabled for version consistency
+
+### Package Management Files
+```
+├── Directory.Packages.props          # Central package version management
+├── Directory.Build.props             # Common build properties
+├── nuget.config                      # NuGet feed configuration
+└── global.json                       # .NET SDK version pinning
+```
+
+### Adding New Packages
+1. Add package reference to project: `<PackageReference Include="PackageName" />`
+2. Define version in `Directory.Packages.props`: `<PackageVersion Include="PackageName" Version="x.x.x" />`
+3. Run `dotnet restore` to apply changes
+
 ## Local Development Setup
 
 ### Prerequisites
@@ -63,7 +85,7 @@ This project uses **Git Flow** with the following branches:
 ### Initial Setup
 1. Clone the repository
 2. Run `docker-compose up -d postgres` to start PostgreSQL
-3. Run `dotnet restore` to restore NuGet packages
+3. Run `dotnet restore` to restore NuGet packages (managed centrally)
 4. Run `dotnet ef database update` to create database schema
 5. If Angular frontend exists, run `npm install` in the Frontend directory
 
@@ -286,9 +308,17 @@ The project includes Docker support for containerized deployment:
    - Validate authentication configuration
 
 3. **Build Issues**
-   - Ensure all NuGet packages are restored
-   - Check .NET SDK version compatibility
+   - Ensure all NuGet packages are restored via central package management
+   - Check .NET SDK version compatibility in `global.json`
+   - Verify package versions in `Directory.Packages.props`
+   - Run `dotnet restore --force` to reset package cache
    - Verify Docker containers are running
+
+4. **Package Management Issues**
+   - Ensure `Directory.Packages.props` contains all required package versions
+   - Check for version conflicts between projects
+   - Verify `ManagePackageVersionsCentrally` is enabled in all projects
+   - Use `dotnet list package --include-transitive` to check package tree
 
 ### Debug Tips
 - Use Application Insights for production debugging
